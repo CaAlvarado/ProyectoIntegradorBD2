@@ -6,6 +6,7 @@ public class Idioma {
 	
 	public Idioma(String idioma){
 		this.nombre=idioma;
+		this.diccionario= new Diccionario(this, "");
 	}
 	
 	public String getNombre() {
