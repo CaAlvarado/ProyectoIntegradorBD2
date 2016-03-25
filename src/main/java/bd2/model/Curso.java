@@ -9,6 +9,12 @@ public class Curso {
 	private Collection<Leccion> lecciones= new LinkedList<Leccion>();
 	private Idioma idioma;
 	
+	public Curso(String nombre, Idioma idioma, Integer nivel){
+		this.nombre=nombre;
+		this.idioma=idioma;
+		this.nivel=nivel;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
