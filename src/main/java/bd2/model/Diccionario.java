@@ -1,13 +1,13 @@
 package bd2.model;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Diccionario {
 	
 	private String edicion;
 	private Idioma idioma;
-	private Map<String,String> definiciones= new HashMap<String,String>();
+	private Map<String,String> definiciones= new LinkedHashMap<String,String>();
 	
 	public Diccionario(Idioma idioma, String edicion){
 		this.idioma=idioma;
