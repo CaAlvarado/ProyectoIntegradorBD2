@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>bd2</groupId>
-	<artifactId>Grupo9</artifactId>
+	<artifactId>Grupo09</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>Grupo9</name>
+	<name>Grupo09</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

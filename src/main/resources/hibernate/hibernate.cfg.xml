@@ -11,18 +11,16 @@
 			com.mysql.jdbc.Driver
 		</property>
 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/polyglot</property>
-		<property name="hibernate.connection.username">polyglot</property>
-		<property name="hibernate.connection.password">polyglot</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/grupo09</property>
+		<property name="hibernate.connection.username">grupo09</property>
+		<property name="hibernate.connection.password">grupo09</property>
 		
 		<property name="hibernate.show_sql">false</property>
 		<property name="hibernate.format_sql">
 			true
 		</property>
 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/grupoNN</property>
-                <property name="hibernate.connection.username">grupoNN</property>
-                <property name="hibernate.connection.password">grupoNN</property>
+		<!-- Colocar las referencias a los archivos de mapping en este punto -->
 
 	</session-factory>
 </hibernate-configuration>
