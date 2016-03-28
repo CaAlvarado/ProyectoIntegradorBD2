@@ -10,6 +10,10 @@ public class Usuario {
 	private Collection<Cursada> cursadasRealizadas = new LinkedList<Cursada>();
 	private Collection<Traduccion> traducciones = new LinkedList<Traduccion>();
 	
+	public Usuario(){
+		
+	}
+	
 	public Usuario(String email, String nombre, Date fechaDeCreacion){
 		this.email = email;
 		this.nombre = nombre;
@@ -17,11 +21,27 @@ public class Usuario {
 	}
 	
 	public int nivel(Idioma idioma){
-		return 0; //Hacer.
+		int nivMax=-1;
+		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
+			if (cursadaAct.getNivel()>nivMax){
+				nivMax=cursadaAct.getNivel();
+			}
+		}
+		if (nivMax==-1){
+			return 0;
+		} else {
+			return nivMax;
+		}
 	}
 	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
-		return new LinkedList<Cursada>(); //Hacer.
+		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
+		for (Cursada cursadaAct : this.cursadasRealizadas){
+			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
+				CAprobadas.add(cursadaAct);
+			}
+		}
+		return CAprobadas;
 	}
 	
 	public void agregarCursada(Cursada cursada){
@@ -58,5 +78,17 @@ public class Usuario {
 	
 	public void setTraducciones(Collection<Traduccion> traducciones){
 		this.traducciones=traducciones;
+	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
+	
+	public String getEmail(){
+		return this.email;
+	}
+	
+	public Date getFechaDeCreacion(){
+		return this.fechaDeCreacion;
 	}
 }
