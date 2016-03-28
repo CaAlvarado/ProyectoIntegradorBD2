@@ -32,4 +32,8 @@ public class Tarea {
 	public void setDescripcion(String descripcion){
 		this.descripcion=descripcion;
 	}
+	
+	public Boolean getCompleta(){
+		return this.completa;
+	}
 }

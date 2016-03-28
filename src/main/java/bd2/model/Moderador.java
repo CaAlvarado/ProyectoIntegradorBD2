@@ -38,7 +38,16 @@ public class Moderador extends Usuario {
 	}
 	
 	public void evaluar(Traduccion traduccion, String descripcion, Integer puntaje){
-		//Dejar para cuando se haya implementado Traducción.
+		if (this.manejaIdioma(traduccion.getIdioma()) && this.manejaIdioma(traduccion.getIdiomaOriginal())){
+			Evaluacion evaluacionTemp = new Evaluacion(new Date(), descripcion, true, traduccion, puntaje);
+			this.evaluaciones.add(evaluacionTemp);
+		} else{
+			System.out.println("El moderador no maneja los idiomas necesarios para evaluar la traducción.");
+		}
+	}
+	
+	public void agregarIdioma(Idioma idioma){
+		this.idiomas.add(idioma);
 	}
 	
 }

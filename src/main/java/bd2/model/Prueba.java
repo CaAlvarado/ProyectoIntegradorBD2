@@ -9,7 +9,7 @@ public class Prueba {
 		this.puntaje=puntaje;
 	}
 
-	public Integer getPuntaje() {
+	public int getPuntaje() {
 		return puntaje;
 	}
 

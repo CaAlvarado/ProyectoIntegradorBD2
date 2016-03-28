@@ -21,21 +21,17 @@ public class Usuario {
 	}
 	
 	public int nivel(Idioma idioma){
-		int nivMax=-1;
-		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
-			if (cursadaAct.getNivel()>nivMax){
-				nivMax=cursadaAct.getNivel();
-			}
-		}
-		if (nivMax==-1){
+		ArrayList<Integer> nivelesTemp = new ArrayList<Integer>();
+		for (Cursada cursada : this.cursadasAprobadas(idioma))
+			nivelesTemp.add(cursada.getNivel());
+		if(nivelesTemp.isEmpty())
 			return 0;
-		} else {
-			return nivMax;
-		}
+		else
+			return Collections.max(nivelesTemp);
 	}
 	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
-		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
+		Collection<Cursada> CAprobadas = new ArrayList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){
 			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
 				CAprobadas.add(cursadaAct);

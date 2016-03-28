@@ -12,7 +12,13 @@ public class Evaluacion extends Tarea {
 		this.puntaje=puntaje;
 	}
 	
-	public Integer getPuntaje(){
+	public Evaluacion(Date fecha, String descripcion, Boolean completa, Traduccion traduccion, int puntaje) {
+		super(fecha, descripcion, completa);
+		this.traduccion = traduccion;
+		this.puntaje = puntaje;
+	}
+	
+	public int getPuntaje(){
 		return this.puntaje;
 	}
 	
@@ -27,5 +33,6 @@ public class Evaluacion extends Tarea {
 	public void setTraduccion(Traduccion traduccion){
 		this.traduccion=traduccion;
 	}
+	
 
 }

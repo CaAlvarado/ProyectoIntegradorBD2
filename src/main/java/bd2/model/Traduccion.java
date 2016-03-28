@@ -43,8 +43,6 @@ public class Traduccion extends Tarea {
 		this.parrafo=parrafo;
 	}
 	
-	public Boolean getCompleta(){
-		return this.completa;
-	}
+	
 	
 }
