@@ -31,7 +31,7 @@ public class Usuario {
 	}
 	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
-		Collection<Cursada> CAprobadas = new ArrayList<Cursada>();
+		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){
 			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
 				CAprobadas.add(cursadaAct);

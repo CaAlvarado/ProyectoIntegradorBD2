@@ -32,7 +32,7 @@ public class Prueba {
 	}
 	
 	public Boolean aprobada(){
-		if (this.puntaje >= 60){
+		if (this.getPuntaje() >= 60){
 			return true;
 		}
 		else{

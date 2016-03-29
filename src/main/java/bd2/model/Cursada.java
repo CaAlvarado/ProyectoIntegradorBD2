@@ -13,6 +13,7 @@ public class Cursada {
 	public Cursada(Curso curso, Date inicio, Usuario usuario){
 		this.inicio=inicio;
 		this.usuario=usuario;
+		usuario.agregarCursada(this);;
 		this.curso=curso;
 	}
 
@@ -45,11 +46,11 @@ public class Cursada {
 	}
 	
 	public Idioma getIdioma(){
-		return curso.getIdioma();
+		return this.curso.getIdioma();
 	}
 	
-	public Integer getNivel(){
-		return curso.getNivel();
+	public int getNivel(){
+		return this.curso.getNivel();
 	}
 	
 	public void agregarPrueba(Prueba prueba){

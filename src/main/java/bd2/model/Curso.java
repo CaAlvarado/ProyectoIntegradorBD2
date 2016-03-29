@@ -5,11 +5,11 @@ import java.util.LinkedList;
 
 public class Curso {
 	private String nombre;
-	private Integer nivel;
+	private int nivel;
 	private Collection<Leccion> lecciones= new LinkedList<Leccion>();
 	private Idioma idioma;
 	
-	public Curso(String nombre, Idioma idioma, Integer nivel){
+	public Curso(String nombre, Idioma idioma, int nivel){
 		this.nombre=nombre;
 		this.idioma=idioma;
 		this.nivel=nivel;
@@ -18,7 +18,7 @@ public class Curso {
 	public String getNombre() {
 		return nombre;
 	}
-	public Integer getNivel() {
+	public int getNivel() {
 		return nivel;
 	}
 	public Collection<Leccion> getLecciones() {

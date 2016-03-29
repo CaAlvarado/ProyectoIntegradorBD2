@@ -1,6 +1,6 @@
 package bd2.model;
 
-import java.time.LocalDateTime;
+
 import java.util.*;
 
 public class Moderador extends Usuario {
