@@ -37,12 +37,12 @@ public class Moderador extends Usuario {
 		return this.idiomas.contains(idioma);
 	}
 	
-	public void evaluar(Traduccion traduccion, String descripcion, Integer puntaje){
+	public void evaluar(Traduccion traduccion, String descripcion, Integer puntaje) throws Exception{
 		if (this.manejaIdioma(traduccion.getIdioma()) && this.manejaIdioma(traduccion.getIdiomaOriginal())){
 			Evaluacion evaluacionTemp = new Evaluacion(new Date(), descripcion, true, traduccion, puntaje);
 			this.evaluaciones.add(evaluacionTemp);
 		} else{
-			System.out.println("El moderador no maneja los idiomas necesarios para evaluar la traducción.");
+			throw new Exception("No se pueden evaluar traducciones de idiomas que el moderador no maneja.");
 		}
 	}
 	

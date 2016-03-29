@@ -21,7 +21,7 @@ public class Usuario {
 	}
 	
 	public int nivel(Idioma idioma){
-		ArrayList<Integer> nivelesTemp = new ArrayList<Integer>();
+		LinkedList<Integer> nivelesTemp = new LinkedList<Integer>();
 		for (Cursada cursada : this.cursadasAprobadas(idioma))
 			nivelesTemp.add(cursada.getNivel());
 		if(nivelesTemp.isEmpty())
