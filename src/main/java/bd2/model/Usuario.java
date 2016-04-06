@@ -21,19 +21,23 @@ public class Usuario {
 	}
 	
 	public int nivel(Idioma idioma){
-		LinkedList<Integer> nivelesTemp = new LinkedList<Integer>();
-		for (Cursada cursada : this.cursadasAprobadas(idioma))
-			nivelesTemp.add(cursada.getNivel());
-		if(nivelesTemp.isEmpty())
+		int nivMax=-1;
+		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
+			if (cursadaAct.getNivel()>nivMax){
+				nivMax=cursadaAct.getNivel();
+			}
+		}
+		if (nivMax==-1){
 			return 0;
-		else
-			return Collections.max(nivelesTemp);
+		} else {
+			return nivMax;
+		}
 	}
 	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
 		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){
-			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
+			if(cursadaAct.finalizada() && cursadaAct.getIdioma().getNombre()==idioma.getNombre()){
 				CAprobadas.add(cursadaAct);
 			}
 		}
@@ -64,6 +68,10 @@ public class Usuario {
 		this.nombre=nombre;
 	}
 	
+	public String getEmail(){
+		return this.email;
+	}
+	
 	public void setDate(Date fechaDeCreacion){
 		this.fechaDeCreacion=fechaDeCreacion;
 	}
@@ -80,9 +88,6 @@ public class Usuario {
 		return this.nombre;
 	}
 	
-	public String getEmail(){
-		return this.email;
-	}
 	
 	public Date getFechaDeCreacion(){
 		return this.fechaDeCreacion;
