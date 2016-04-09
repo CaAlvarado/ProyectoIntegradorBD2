@@ -2,9 +2,10 @@ package bd2.model;
 
 import java.util.*;
 
+/** Esta es la clase Documento, la cual conoce su nombre, su complejidad, el idioma en el que estï¿½ escrito y la colecciï¿½n de pï¿½rrafos que lo conforman.*/
 public class Documento {
 	
-	/** Esta es la clase Documento, la cual conoce su nombre, su complejidad, el idioma en el que está escrito y la colección de párrafos que lo conforman.*/
+	
 	
 	private String nombre;
 	private Integer complejidad;
@@ -12,21 +13,21 @@ public class Documento {
 	private Collection<Parrafo> parrafos = new LinkedList<Parrafo>();
 	
 	
-	/** Constructor de la clase que recibe por parámetro un nombre, una complejidad y el idioma en que el Documento está escrito.*/
+	/** Constructor de la clase que recibe por parï¿½metro un nombre, una complejidad y el idioma en que el Documento estï¿½ escrito.*/
 	public Documento(String nombre, Integer complejidad, Idioma idioma){
 		this.nombre=nombre;
 		this.complejidad=complejidad;
 		this.idioma=idioma;
 	}
 	
-	/** Constructor de la clase que recibe por parámetro un nombre y el idioma en que el Documento está escrito.*/
+	/** Constructor de la clase que recibe por parï¿½metro un nombre y el idioma en que el Documento estï¿½ escrito.*/
 	public Documento(String nombre, Idioma idioma){
 		this.nombre=nombre;
 		this.idioma=idioma;
 	}
 	
-	/** Método de la clase que recibe por parámetro una complejidad, si el parámetro es mayor o igual a 0 o menor o igual a 10, se setea la complejidad. Caso contrario, 
-	 * se lanza una excepción.*/
+	/** Mï¿½todo de la clase que recibe por parï¿½metro una complejidad, si el parï¿½metro es mayor o igual a 0 o menor o igual a 10, se setea la complejidad. Caso contrario, 
+	 * se lanza una excepciï¿½n.*/
 	public void setComplejidad(Integer complejidad) throws Exception{
 		if (complejidad<0) {
 			throw new Exception ("No se puede usar valores negativos como complejidad de un documento.");
@@ -49,7 +50,7 @@ public class Documento {
 		this.idioma=idioma;
 	}
 	
-	/** Método que crea un párrafo con el texto recibido por parámetro y lo agrega a la colección de párrafos del Documento.*/
+	/** Mï¿½todo que crea un pï¿½rrafo con el texto recibido por parï¿½metro y lo agrega a la colecciï¿½n de pï¿½rrafos del Documento.*/
 	public Parrafo agregarParrafo(String texto){
 		Parrafo tempParrafo = new Parrafo(texto,this);
 		parrafos.add(tempParrafo);

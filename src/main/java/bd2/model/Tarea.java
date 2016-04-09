@@ -2,15 +2,16 @@ package bd2.model;
 
 import java.util.*;
 
+/** Esta es la clase Tarea, la cual conoce su fecham una descripciï¿½n y un booleano que indica si estï¿½ completa o no.*/
 public class Tarea {
 	
-	/** Esta es la clase Tarea, la cual conoce su fecham una descripción y un booleano que indica si está completa o no.*/
+	
 	
 	Date fecha;
 	String descripcion;
 	Boolean completa;
 	
-	/** Constructor que recibe una fecha, una descripción y un booleano que indica si la tarea está completa.*/
+	/** Constructor que recibe una fecha, una descripciï¿½n y un booleano que indica si la tarea estï¿½ completa.*/
 	public Tarea (Date fecha, String descripcion, Boolean completa){
 		this.fecha=fecha;
 		this.descripcion=descripcion;

@@ -3,20 +3,21 @@ package bd2.model;
 
 import java.util.*;
 
+/** Esta es la clase Moderador, la cuï¿½l es subclase de la clase Usuario y conoce a los idiomas que maneja el Moderador
+ * y las evaluaciones realizadas por ï¿½l.*/
 public class Moderador extends Usuario {
 	
-	/** Esta es la clase Moderador, la cuál es subclase de la clase Usuario y conoce a los idiomas que maneja el Moderador
-	 * y las evaluaciones realizadas por él.*/
+	
 	
 	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
 	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
 	
-	/** Constructor de Moderador que recibe por parámetro un email, el nombre del moderador y la fecha de creación.*/
+	/** Constructor de Moderador que recibe por parï¿½metro un email, el nombre del moderador y la fecha de creaciï¿½n.*/
 	public Moderador(String email, String nombre, Date fechaDeCreacion){
 		super(email, nombre, fechaDeCreacion);
 	}
 
-	/** Método que retorna la reputación del Moderador, la cuál se corresponde con la cantidad de evaluaciones realizadas
+	/** Mï¿½todo que retorna la reputaciï¿½n del Moderador, la cuï¿½l se corresponde con la cantidad de evaluaciones realizadas
 	 * por el Moderador.*/
 	public int reputacion(){
 		return this.evaluaciones.size();
@@ -39,15 +40,15 @@ public class Moderador extends Usuario {
 		this.idiomas = idiomas;
 	}
 	
-	/** Método que retorna si el moderador maneja el idioma recibido por parámetro.*/
+	/** Mï¿½todo que retorna si el moderador maneja el idioma recibido por parï¿½metro.*/
 	public boolean manejaIdioma(Idioma idioma){
 		return this.idiomas.contains(idioma);
 	}
 	
-	/** Método que evalúa una traducción, recibiendo por parámetro la traducción, la descripción y el puntaje
-	 * asignado a la traducción. Para que se pueda evaluar una traducción, el moderador debe manejar tanto el idioma
-	 * original del párrafo siendo traducido como el idioma en el que está escrita la traducción. Si el moderador
-	 * no maneja alguno de los dos idiomas, entonces se levanta una excepción.*/
+	/** Mï¿½todo que evalï¿½a una traducciï¿½n, recibiendo por parï¿½metro la traducciï¿½n, la descripciï¿½n y el puntaje
+	 * asignado a la traducciï¿½n. Para que se pueda evaluar una traducciï¿½n, el moderador debe manejar tanto el idioma
+	 * original del pï¿½rrafo siendo traducido como el idioma en el que estï¿½ escrita la traducciï¿½n. Si el moderador
+	 * no maneja alguno de los dos idiomas, entonces se levanta una excepciï¿½n.*/
 	public void evaluar(Traduccion traduccion, String descripcion, Integer puntaje) throws Exception{
 		if (this.manejaIdioma(traduccion.getIdioma()) && this.manejaIdioma(traduccion.getIdiomaOriginal())){
 			Evaluacion evaluacionTemp = new Evaluacion(new Date(), descripcion, true, traduccion, puntaje);
@@ -57,7 +58,7 @@ public class Moderador extends Usuario {
 		}
 	}
 	
-	/** Método que agrega el idioam recibido por parámetro a los idiomas que maneja el Moderador.*/
+	/** Mï¿½todo que agrega el idioam recibido por parï¿½metro a los idiomas que maneja el Moderador.*/
 	public void agregarIdioma(Idioma idioma){
 		this.idiomas.add(idioma);
 	}

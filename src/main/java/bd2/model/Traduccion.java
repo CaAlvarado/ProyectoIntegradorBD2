@@ -2,16 +2,17 @@ package bd2.model;
 
 import java.util.Date;
 
+/** Esta es la clase Traducciï¿½n, la cual conoce el texto, el idioma en la que estï¿½ escrita y el pï¿½rrafo traducido.*/
 public class Traduccion extends Tarea {
 	
-	/** Esta es la clase Traducción, la cual conoce el texto, el idioma en la que está escrita y el párrafo traducido.*/
+	
 	
 	private String texto;
 	private Idioma idioma;
 	private Parrafo parrafo;
 	
-	/** Constructor que recibe por parámetro una fecha, una descripción, el texto de la traducción, el párrafo siendo traducido
-	 * y el idioma de la traducción.*/
+	/** Constructor que recibe por parï¿½metro una fecha, una descripciï¿½n, el texto de la traducciï¿½n, el pï¿½rrafo siendo traducido
+	 * y el idioma de la traducciï¿½n.*/
 	public Traduccion(Date fecha, String descripcion, Boolean completa, String texto, Parrafo parrafo, Idioma idioma){
 		super(fecha, descripcion, completa);
 		this.texto=texto;
@@ -19,7 +20,7 @@ public class Traduccion extends Tarea {
 		this.parrafo=parrafo;
 	}
 	
-	/** Método que retorna el idioma original en que estaba escrito el párrafo traducido.*/
+	/** Mï¿½todo que retorna el idioma original en que estaba escrito el pï¿½rrafo traducido.*/
 	public Idioma getIdiomaOriginal(){
 		return this.parrafo.getDocumento().getIdioma();
 	}

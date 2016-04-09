@@ -2,14 +2,15 @@ package bd2.model;
 
 import java.util.*;
 
+/** Esta es la clase Parrafo, la cual conoce el texto del pï¿½rrafo y el Documento al que el pï¿½rrafo pertenece.*/
 public class Parrafo {
 	
-	/** Esta es la clase Parrafo, la cual conoce el texto del párrafo y el Documento al que el párrafo pertenece.*/
+	
 	
 	private String texto;
 	private Documento documento;
 	
-	/** Contructor de Párrafo, el cuál recibe como parámetro un texto y el documento al que el párrafo pertenece.*/
+	/** Contructor de Pï¿½rrafo, el cuï¿½l recibe como parï¿½metro un texto y el documento al que el pï¿½rrafo pertenece.*/
 	public Parrafo(String texto, Documento documento){
 		this.texto=texto;
 		this.documento=documento;

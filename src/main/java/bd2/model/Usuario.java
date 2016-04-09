@@ -2,11 +2,11 @@ package bd2.model;
 
 import java.util.*;
 
-
+/** Esta es la clase Usuario, la cual conoce su email, su nombre, la fecha de creaciï¿½n,
+ * las cursadas que realizï¿½ y las traducciones que realizï¿½.*/
 public class Usuario {
 	
-	/** Esta es la clase Usuario, la cual conoce su email, su nombre, la fecha de creación,
-	 * las cursadas que realizó y las traducciones que realizó.*/
+	
 	
 	private String email;
 	private String nombre;
@@ -18,14 +18,14 @@ public class Usuario {
 		
 	}
 	
-	/** Constructor de la clase que recibe por parámetro un email, un nombre y una fecha de creación.*/
+	/** Constructor de la clase que recibe por parï¿½metro un email, un nombre y una fecha de creaciï¿½n.*/
 	public Usuario(String email, String nombre, Date fechaDeCreacion){
 		this.email = email;
 		this.nombre = nombre;
 		this.fechaDeCreacion = fechaDeCreacion;
 	}
 	
-	/** Método que retorna el nivel máximo entre las cursadas aprobadas por el usuario del idioma recibido por parámetro.*/	
+	/** Mï¿½todo que retorna el nivel mï¿½ximo entre las cursadas aprobadas por el usuario del idioma recibido por parï¿½metro.*/	
 	public int nivel(Idioma idioma){
 		int nivMax=-1;
 		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
@@ -40,8 +40,8 @@ public class Usuario {
 		}
 	}
 	
-	/** Método que retorna todas las cursadas aprobadas por el usuario del idioma recibido por parámetro. Para esto,
-	 * se selecciona de la colección de cursadas realizadas las cursadas del idioma que es recibido por parámetro que fueron 
+	/** Mï¿½todo que retorna todas las cursadas aprobadas por el usuario del idioma recibido por parï¿½metro. Para esto,
+	 * se selecciona de la colecciï¿½n de cursadas realizadas las cursadas del idioma que es recibido por parï¿½metro que fueron 
 	 * finalizadas */	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
 		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
