@@ -2,7 +2,7 @@ package bd2.model;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/** Esta es la clase sitio, que posee tres colecciones: usuarios, cursos y documentos */
+// Esta es la clase sitio, que posee tres colecciones: usuarios, cursos y documentos
 public class Sitio {
 	
 	private Collection<Usuario> usuarios= new LinkedList<Usuario>();

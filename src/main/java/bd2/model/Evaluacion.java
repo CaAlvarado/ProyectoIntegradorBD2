@@ -2,6 +2,8 @@ package bd2.model;
 
 import java.util.*;
 
+/** Esta es la clase Evaluación, la cuál contiene un puntaje numérico y la traducción que es evaluada*/
+
 public class Evaluacion extends Tarea {
 	
 	private Integer puntaje;
