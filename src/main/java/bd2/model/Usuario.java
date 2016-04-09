@@ -40,7 +40,9 @@ public class Usuario {
 		}
 	}
 	
-	/** Método que retorna todas las cursadas aprobadas por el usuario del idioma recibido por parámetro.*/	
+	/** Método que retorna todas las cursadas aprobadas por el usuario del idioma recibido por parámetro. Para esto,
+	 * se selecciona de la colección de cursadas realizadas las cursadas del idioma que es recibido por parámetro que fueron 
+	 * finalizadas */	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
 		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){

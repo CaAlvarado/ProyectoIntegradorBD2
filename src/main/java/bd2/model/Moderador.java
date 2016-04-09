@@ -44,7 +44,10 @@ public class Moderador extends Usuario {
 		return this.idiomas.contains(idioma);
 	}
 	
-	/** Método que retorna si el moderador maneja el idioma recibido por parámetro.*/
+	/** Método que evalúa una traducción, recibiendo por parámetro la traducción, la descripción y el puntaje
+	 * asignado a la traducción. Para que se pueda evaluar una traducción, el moderador debe manejar tanto el idioma
+	 * original del párrafo siendo traducido como el idioma en el que está escrita la traducción. Si el moderador
+	 * no maneja alguno de los dos idiomas, entonces se levanta una excepción.*/
 	public void evaluar(Traduccion traduccion, String descripcion, Integer puntaje) throws Exception{
 		if (this.manejaIdioma(traduccion.getIdioma()) && this.manejaIdioma(traduccion.getIdiomaOriginal())){
 			Evaluacion evaluacionTemp = new Evaluacion(new Date(), descripcion, true, traduccion, puntaje);

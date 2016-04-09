@@ -3,14 +3,14 @@ package bd2.model;
 import java.util.Collection;
 import java.util.LinkedList;
 
-// Esta es la clase curso, que conoce su nombre, nivel, el idioma que se enseÃ±a y las lecciones que le corresponden
+/** Esta es la clase curso, que conoce su nombre, nivel, el idioma que se enseña y las lecciones que le corresponden */	
 public class Curso {										
 	private String nombre;
 	private int nivel;
 	private Collection<Leccion> lecciones= new LinkedList<Leccion>();
 	private Idioma idioma;
 	
-	// Este constructor se encarga de asignar los parametros nombre, idioma y nivel a las variables de instancia del objeto que se crea
+	/** Este constructor se encarga de asignar los parametros nombre, idioma y nivel a las variables de instancia del objeto que se crea */
 	public Curso(String nombre, Idioma idioma, int nivel){
 		this.nombre=nombre;
 		this.idioma=idioma;
