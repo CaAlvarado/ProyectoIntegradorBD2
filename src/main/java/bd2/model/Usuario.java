@@ -4,6 +4,10 @@ import java.util.*;
 
 
 public class Usuario {
+	
+	/** Esta es la clase Usuario, la cual conoce su email, su nombre, la fecha de creación,
+	 * las cursadas que realizó y las traducciones que realizó.*/
+	
 	private String email;
 	private String nombre;
 	private Date fechaDeCreacion;
@@ -14,12 +18,14 @@ public class Usuario {
 		
 	}
 	
+	/** Constructor de la clase que recibe por parámetro un email, un nombre y una fecha de creación.*/
 	public Usuario(String email, String nombre, Date fechaDeCreacion){
 		this.email = email;
 		this.nombre = nombre;
 		this.fechaDeCreacion = fechaDeCreacion;
 	}
 	
+	/** Método que retorna el nivel máximo entre las cursadas aprobadas por el usuario del idioma recibido por parámetro.*/	
 	public int nivel(Idioma idioma){
 		int nivMax=-1;
 		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
@@ -34,6 +40,7 @@ public class Usuario {
 		}
 	}
 	
+	/** Método que retorna todas las cursadas aprobadas por el usuario del idioma recibido por parámetro.*/	
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
 		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){

@@ -27,7 +27,6 @@ public class Documento {
 	
 	/** Método de la clase que recibe por parámetro una complejidad, si el parámetro es mayor o igual a 0 o menor o igual a 10, se setea la complejidad. Caso contrario, 
 	 * se lanza una excepción.*/
-	
 	public void setComplejidad(Integer complejidad) throws Exception{
 		if (complejidad<0) {
 			throw new Exception ("No se puede usar valores negativos como complejidad de un documento.");
