@@ -2,6 +2,7 @@ package bd2.model;
 
 /** Esta es la clase prueba, que conoce la leccion que se esta evaluando y el puntaje de dicha prueba */
 public class Prueba {
+	private long id = 1L;
 	private Integer puntaje;
 	private Leccion leccion;
 	
@@ -48,5 +49,13 @@ public class Prueba {
 		else{
 			return false;
 		}
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

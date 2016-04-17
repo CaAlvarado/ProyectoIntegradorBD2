@@ -3,8 +3,9 @@ package bd2.model;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/** Esta es la clase curso, que conoce su nombre, nivel, el idioma que se enseña y las lecciones que le corresponden */	
-public class Curso {										
+/** Esta es la clase curso, que conoce su nombre, nivel, el idioma que se enseï¿½a y las lecciones que le corresponden */	
+public class Curso {	
+	private long id = 1L;
 	private String nombre;
 	private int nivel;
 	private Collection<Leccion> lecciones= new LinkedList<Leccion>();
@@ -41,5 +42,13 @@ public class Curso {
 	}
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

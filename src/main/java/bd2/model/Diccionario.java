@@ -6,7 +6,8 @@ import java.util.Map;
 /** Esta es la clase diccionario, que conoce la edicion que lo realizo, el idioma de su contenido, 
  * y todas las palabras que posee junto con sus respectivas definiciones
  */
-public class Diccionario {										
+public class Diccionario {	
+	private long id = 1L;
 	private String edicion;
 	private Idioma idioma;
 	/** Se usa una estructura de mapa que mapea claves (las palabras) con sus valores (definiciones) */
@@ -43,5 +44,13 @@ public class Diccionario {
 	}
 	public Map<String, String> getDefiniciones() {
 		return definiciones;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

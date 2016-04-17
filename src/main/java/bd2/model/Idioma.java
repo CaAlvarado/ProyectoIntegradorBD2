@@ -2,6 +2,7 @@ package bd2.model;
 
 /** Esta es la clase idioma, que posee un nombre y un diccionario de palabras y definiciones */
 public class Idioma {
+	private long id = 1L;
 	private String nombre;
 	private Diccionario diccionario;
 	
@@ -24,6 +25,14 @@ public class Idioma {
 	}
 	public void setDiccionario(Diccionario diccionario) {
 		this.diccionario = diccionario;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

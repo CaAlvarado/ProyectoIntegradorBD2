@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 /** Esta es la clase sitio, que posee tres colecciones: usuarios, cursos y documentos */
 public class Sitio {
-	
+	private long id = 1L;
 	private Collection<Usuario> usuarios= new LinkedList<Usuario>();
 	private Collection<Curso> cursos= new LinkedList<Curso>();
 	private Collection<Documento> documentos= new LinkedList<Documento>();
@@ -29,5 +29,11 @@ public class Sitio {
 	
 	public void agregarDocumento(Documento documento){
 		this.documentos.add(documento);
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

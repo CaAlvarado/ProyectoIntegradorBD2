@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class>
+		<meta attribute="class-description">
+			Esta es la tabla de la clase cursada
+		</meta>
+		<id name="id" type="long" column="id_cursada">
+			<generator class="increment"/>
+		</id>
+		<many-to-one name="usuario" class="bd2.model.Usuario" not-null="true" unique="true"></many-to-one>
+		<property name="inicio" column="fecha_inicio" type="date"/>
+		<many-to-one name="curso" class="bd2.model.Curso" not-null="true" unique="true"/>
+		<list name="pruebas">
+			<key column="cursada_id"/>
+			<list-index column="indice_prueba"/>
+			<one-to-many class="bd2.model.Prueba"/>
+		</list>
+	</class>
+</hibernate-mapping>

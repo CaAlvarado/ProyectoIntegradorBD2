@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="Diccionario" table="diccionario">
+		<meta attribute="class-description">
+			Tabla de la clase diccionario
+		</meta>
+		<id name="id" type="long" column="id_diccionario">
+			<generator class="increment"/>
+		</id>
+		<property name="edicion" column="edicion" type="string"/>
+		<map name="definiciones" table="definicion">
+			<key column="id_definicion"/>
+			<map-key type="text" column="palabra"/>
+			<element type="text" column="significado"/>
+		</map>
+		<many-to-one name="idioma" class="bd2.model.Idioma" not-null="true" unique="true"/>
+	</class>
+</hibernate-mapping>

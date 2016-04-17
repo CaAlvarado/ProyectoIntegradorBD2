@@ -7,7 +7,9 @@ import java.util.LinkedList;
 /** Esta es la clase cursada que conoce a sus alumnos, fecha de inicio, 
  * a que curso pertenece, y que pruebas se realizaron en ella
  */
-public class Cursada {													
+public class Cursada {	
+	
+	private long id = 1L;
 	private Usuario usuario;											
 	private Date inicio;
 	private Curso curso;
@@ -92,4 +94,12 @@ public class Cursada {
 		}
 		return true;
 	}
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 }

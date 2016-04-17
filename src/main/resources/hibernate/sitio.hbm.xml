@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class>
+		<meta attribute="class-description">
+			Esta es la tabla de la clase sitio
+		</meta>
+		<id name="id" type="long" column="id_sitio">
+			<generator class="increment"/>
+		</id>
+		<list name="usuarios">
+			<key column="sitio_id"/>
+			<list-index column="indice_usuario"/>
+			<one-to-many class="bd2.model.Usuario"/>
+		</list>
+		<list name="cursos">
+			<key column="sitio_id"/>
+			<list-index column="indice_curso"/>
+			<one-to-many class="bd2.model.Curso"/>
+		</list>
+		<list name="documentos">
+			<key column="sitio_id"/>
+			<list-index column="indice_documento"/>
+			<one-to-many class="bd2.model.Documento"/>
+		</list>
+	</class>
+</hibernate-mapping>
