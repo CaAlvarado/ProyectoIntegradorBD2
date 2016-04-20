@@ -19,6 +19,10 @@ public class Diccionario {
 		this.edicion=edicion;
 	}
 	
+	public Diccionario(){
+		
+	}
+	
 	public String getEdicion() {
 		return edicion;
 	}

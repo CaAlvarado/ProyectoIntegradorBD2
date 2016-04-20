@@ -24,6 +24,10 @@ public class Cursada {
 		usuario.agregarCursada(this);;
 		this.curso=curso;
 	}
+	
+	public Cursada(){
+		
+	}
 
 	public Usuario getUsuario() {
 		return usuario;

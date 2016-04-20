@@ -14,6 +14,10 @@ public class Idioma {
 		this.diccionario= new Diccionario(this, "");
 	}
 	
+	public Idioma(){
+		
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

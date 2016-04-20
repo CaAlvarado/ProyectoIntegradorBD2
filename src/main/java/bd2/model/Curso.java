@@ -18,6 +18,10 @@ public class Curso {
 		this.nivel=nivel;
 	}
 	
+	public Curso(){
+		
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

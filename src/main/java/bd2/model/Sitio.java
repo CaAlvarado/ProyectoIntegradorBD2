@@ -9,6 +9,10 @@ public class Sitio {
 	private Collection<Curso> cursos= new LinkedList<Curso>();
 	private Collection<Documento> documentos= new LinkedList<Documento>();
 	
+	public Sitio(){
+		
+	}
+	
 	public Collection<Usuario> getUsuarios() {
 		return this.usuarios;
 	}

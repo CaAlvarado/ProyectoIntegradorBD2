@@ -15,6 +15,10 @@ public class Prueba {
 		this.setPuntaje(puntaje);
 	}
 
+	public Prueba(){
+		
+	}
+	
 	public int getPuntaje() {
 		return puntaje;
 	}

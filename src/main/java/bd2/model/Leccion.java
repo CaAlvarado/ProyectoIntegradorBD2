@@ -10,6 +10,10 @@ public class Leccion {
 		this.nombre=nombre;
 	}
 	
+	public Leccion(){
+		
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
