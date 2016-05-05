@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="Usuario" table="usuario" discriminator-value="U">
+            <meta attribute="class-description">
+			Tabla de la clase usuario
+            </meta>
+            <id name="id" column="id_usuario"> <generator class="native"></id>
+            <discriminator column="tipo_usuario" type="string">
+            <property name="email">
+            <proterty name="nombre">
+            <property name="fechaDeCreacion">
+            <list name="cursadasRealizadas" cascade="all">
+                <key column="id_usuario">
+                <one-to-many class="Cursada">
+            </list>
+            <list name="traducciones" cascade="all">
+                <key column="id_usuario">
+                <one-to-many class="Traduccion">
+            </list>
+            <joined-subclass name="Moderador" table="moderador">
+                <list name="idiomas" table="moderadorIdioma" cascade="all">
+                <key column="id_moderador">
+                <many-to-many class="Idioma" column="id_idioma">
+                </list>
+            </joined-subclass>
+        </class>
+</hibernate-mapping>">

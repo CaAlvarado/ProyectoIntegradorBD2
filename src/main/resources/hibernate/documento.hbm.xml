@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="Documento" table="documento">
+        <meta attribute="class-description">
+            Esta es la tabla de la clase documento
+	</meta>
+        <id name="id" type="long" column="id_documento">
+            <generator class="increment"/>
+	</id>
+        <property name="nombre">
+        <property name="complejidad">
+        <list name="parrafos" >
+            <key column="id_documento">
+            <list-index column="indice_parrafo"/>
+            <one-to-many class="Parrafo">
+        </list>
+        <many-to-one name="idioma" column="idioma_id" cascade="all" not-null="true"/>
+    </class>
+</hibernate-mapping>
