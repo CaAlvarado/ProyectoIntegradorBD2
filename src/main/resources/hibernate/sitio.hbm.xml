@@ -4,7 +4,7 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-	<class>
+	<class name="bd2.model.Sitio" table="sitio">
 		<meta attribute="class-description">
 			Esta es la tabla de la clase sitio
 		</meta>
@@ -21,7 +21,7 @@
 			<list-index column="indice_curso"/>
 			<one-to-many class="bd2.model.Curso"/>
 		</list>
-		<list name="documentos">
+		<list name="documentos" cascade="all">
 			<key column="sitio_id"/>
 			<list-index column="indice_documento"/>
 			<one-to-many class="bd2.model.Documento"/>

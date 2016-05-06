@@ -19,6 +19,10 @@ public class Traduccion extends Tarea {
 		this.idioma=idioma;
 		this.parrafo=parrafo;
 	}
+
+	public Traduccion(){
+		super();
+	}
 	
 	/** M�todo que retorna el idioma original en que estaba escrito el p�rrafo traducido.*/
 	public Idioma getIdiomaOriginal(){

@@ -17,6 +17,14 @@ public class Moderador extends Usuario {
 		super(email, nombre, fechaDeCreacion);
 	}
 
+	public Moderador(){
+		super();
+	}
+	
+	public void setFechaDeCreacion(Date fechaDeCreacion){
+		super.setFechaDeCreacion(fechaDeCreacion);
+	}
+	
 	/** M�todo que retorna la reputaci�n del Moderador, la cu�l se corresponde con la cantidad de evaluaciones realizadas
 	 * por el Moderador.*/
 	public int reputacion(){

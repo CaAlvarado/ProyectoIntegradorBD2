@@ -6,8 +6,7 @@ import java.util.*;
  * las cursadas que realiz� y las traducciones que realiz�.*/
 public class Usuario {
 	
-	
-	
+	private long id = 1L;
 	private String email;
 	private String nombre;
 	private Date fechaDeCreacion;
@@ -46,7 +45,7 @@ public class Usuario {
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
 		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
 		for (Cursada cursadaAct : this.cursadasRealizadas){
-			if(cursadaAct.finalizada() && cursadaAct.getIdioma().getNombre()==idioma.getNombre()){
+			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
 				CAprobadas.add(cursadaAct);
 			}
 		}
@@ -81,7 +80,7 @@ public class Usuario {
 		return this.email;
 	}
 	
-	public void setDate(Date fechaDeCreacion){
+	public void setFechaDeCreacion(Date fechaDeCreacion){
 		this.fechaDeCreacion=fechaDeCreacion;
 	}
 	
@@ -100,5 +99,13 @@ public class Usuario {
 	
 	public Date getFechaDeCreacion(){
 		return this.fechaDeCreacion;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

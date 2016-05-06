@@ -40,4 +40,16 @@ public class Sitio {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public void setCursos(Collection<Curso> cursos){
+		this.cursos=cursos;
+	}
+	
+	public void setUsuarios(Collection<Usuario> usuarios){
+		this.usuarios=usuarios;
+	}
+	
+	public void setDocumentos(Collection<Documento> documentos){
+		this.documentos=documentos;
+	}
 }

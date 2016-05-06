@@ -5,17 +5,24 @@ import java.util.*;
 /** Esta es la clase Tarea, la cual conoce su fecham una descripci�n y un booleano que indica si est� completa o no.*/
 public class Tarea {
 	
-	
-	
-	Date fecha;
-	String descripcion;
-	Boolean completa;
+	protected long id = 1L;
+	protected Date fecha;
+	protected String descripcion;
+	protected Boolean completa;
 	
 	/** Constructor que recibe una fecha, una descripci�n y un booleano que indica si la tarea est� completa.*/
 	public Tarea (Date fecha, String descripcion, Boolean completa){
 		this.fecha=fecha;
 		this.descripcion=descripcion;
 		this.completa=completa;
+	}
+	
+	public Tarea(){
+		
+	}
+	
+	public void setCompleta(Boolean comp){
+		this.completar();
 	}
 	
 	public void completar(){
@@ -40,5 +47,13 @@ public class Tarea {
 	
 	public Boolean getCompleta(){
 		return this.completa;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }
