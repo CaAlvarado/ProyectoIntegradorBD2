@@ -11,12 +11,12 @@
 		<id name="id" type="long" column="id_sitio">
 			<generator class="increment"/>
 		</id>
-		<list name="usuarios">
+		<list name="usuarios" cascade="all">
 			<key column="sitio_id"/>
 			<list-index column="indice_usuario"/>
 			<one-to-many class="bd2.model.Usuario"/>
 		</list>
-		<list name="cursos">
+		<list name="cursos" cascade="all">
 			<key column="sitio_id"/>
 			<list-index column="indice_curso"/>
 			<one-to-many class="bd2.model.Curso"/>
