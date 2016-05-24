@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Evaluacion extends Tarea {
 	
+	private long id = 1L;
 	private Integer puntaje;
 	private Traduccion traduccion;
 	
@@ -40,5 +41,12 @@ public class Evaluacion extends Tarea {
 		this.traduccion=traduccion;
 	}
 	
+	public long getId(){
+		return this.id;
+	}
+	
+	public void setId(long id){
+		this.id=id;
+	}
 
 }

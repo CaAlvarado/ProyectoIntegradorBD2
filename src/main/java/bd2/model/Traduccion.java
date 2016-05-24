@@ -6,7 +6,7 @@ import java.util.Date;
 public class Traduccion extends Tarea {
 	
 	
-	
+	private long id = 1L;
 	private String texto;
 	private Idioma idioma;
 	private Parrafo parrafo;
@@ -49,6 +49,12 @@ public class Traduccion extends Tarea {
 		this.parrafo=parrafo;
 	}
 	
+	public long getId(){
+		return this.id;
+	}
 	
+	public void setId(long id){
+		this.id=id;
+	}
 	
 }

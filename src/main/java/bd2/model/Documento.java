@@ -6,7 +6,7 @@ import java.util.*;
 public class Documento {
 	
 	
-	
+	private long id = 1L;
 	private String nombre;
 	private Integer complejidad;
 	private Idioma idioma;
@@ -63,6 +63,14 @@ public class Documento {
 	
 	public String getNombre(){
 		return this.nombre;
+	}
+	
+	public long getId(){
+		return this.id;
+	}
+	
+	public void setId(long id){
+		this.id=id;
 	}
 	
 	public void setNombre(String nombre){

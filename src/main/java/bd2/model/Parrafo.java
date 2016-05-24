@@ -6,7 +6,7 @@ import java.util.*;
 public class Parrafo {
 	
 	
-	
+	private long id = 1L;
 	private String texto;
 	private Documento documento;
 	
@@ -30,5 +30,13 @@ public class Parrafo {
 	
 	public void setDocumento(Documento documento){
 		this.documento=documento;
+	}
+	
+	public long getId(){
+		return this.id;
+	}
+	
+	public void setId(long id){
+		this.id=id;
 	}
 }

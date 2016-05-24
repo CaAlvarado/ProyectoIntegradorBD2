@@ -6,7 +6,7 @@ import java.util.*;
 public class Tarea {
 	
 	
-	
+	long id = 1L;
 	Date fecha;
 	String descripcion;
 	Boolean completa;
@@ -40,5 +40,13 @@ public class Tarea {
 	
 	public Boolean getCompleta(){
 		return this.completa;
+	}
+	
+	public long getId(){
+		return this.id;
+	}
+	
+	public void setId(long id){
+		this.id=id;
 	}
 }

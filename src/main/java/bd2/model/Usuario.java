@@ -7,7 +7,7 @@ import java.util.*;
 public class Usuario {
 	
 	
-	
+	private long id = 1L;
 	private String email;
 	private String nombre;
 	private Date fechaDeCreacion;
@@ -100,5 +100,13 @@ public class Usuario {
 	
 	public Date getFechaDeCreacion(){
 		return this.fechaDeCreacion;
+	}
+	
+	public long getId(){
+		return this.id;
+	}
+	
+	public void setId(long id){
+		this.id=id;
 	}
 }
