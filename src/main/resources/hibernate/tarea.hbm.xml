@@ -4,24 +4,24 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-	<class name="Tarea" table="tarea">
+	<class name="bd2.model.Tarea" table="tarea">
 		<meta attribute="class-description">
 			Tabla de la clase tarea
 		</meta>
 		<id name="id" type="long" column="id_tarea">
 			<generator class="increment"/>
 		</id>
-                <discriminator column="tipo_tarea" type="string">
-                <property name="fecha">
-                <property name="descripcion">
-                <property name="completa">
-                <subclass name="Traduccion" extends="Tarea" discriminator-value="T">
-                    <property name="texto">
-                    <many-to-one name="parrafo" class="Parrafo" column="id_parrafo" cascade="all">
-                    <many-to-one name="idioma" class="Idioma" column="id_idioma" cascade="all">
+                <discriminator column="tipo_tarea" type="string"/>
+                <property name="fecha" type="date"/>
+                <property name="descripcion" type="text"/>
+                <property name="completa" type="boolean"/>
+                <subclass name="bd2.model.Traduccion" extends="Tarea" discriminator-value="T">
+                    <property name="texto" type="text"/>
+                    <many-to-one name="parrafo" class="bd2.model.Parrafo" column="id_parrafo" cascade="all"/>
+                    <many-to-one name="idioma" class="bd2.model.Idioma" column="id_idioma" cascade="all"/>
                 </subclass>
-                <subclass name="Evaluacion" extends="Tarea" discriminator-value="E">
-                    <many-to-one name="traduccion" class="Traduccion" column="id_traduccion" cascade="all">
+                <subclass name="bd2.model.Evaluacion" extends="Tarea" discriminator-value="E">
+                    <many-to-one name="traduccion" class="bd2.model.Traduccion" column="id_traduccion" cascade="all"/>
                 </subclass>
 	</class>     
 </hibernate-mapping>

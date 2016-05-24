@@ -8,7 +8,7 @@ import java.util.*;
 public class Moderador extends Usuario {
 	
 	
-	private long id = 1L;
+	
 	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
 	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
 	
@@ -17,6 +17,14 @@ public class Moderador extends Usuario {
 		super(email, nombre, fechaDeCreacion);
 	}
 
+	public Moderador(){
+		super();
+	}
+	
+	public void setFechaDeCreacion(Date fechaDeCreacion){
+		super.setFechaDeCreacion(fechaDeCreacion);
+	}
+	
 	/** M�todo que retorna la reputaci�n del Moderador, la cu�l se corresponde con la cantidad de evaluaciones realizadas
 	 * por el Moderador.*/
 	public int reputacion(){
@@ -61,14 +69,6 @@ public class Moderador extends Usuario {
 	/** M�todo que agrega el idioam recibido por par�metro a los idiomas que maneja el Moderador.*/
 	public void agregarIdioma(Idioma idioma){
 		this.idiomas.add(idioma);
-	}
-	
-	public long getId(){
-		return this.id;
-	}
-	
-	public void setId(long id){
-		this.id=id;
 	}
 	
 }

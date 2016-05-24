@@ -5,7 +5,6 @@ import java.util.*;
 /** Esta es la clase Documento, la cual conoce su nombre, su complejidad, el idioma en el que est� escrito y la colecci�n de p�rrafos que lo conforman.*/
 public class Documento {
 	
-	
 	private long id = 1L;
 	private String nombre;
 	private Integer complejidad;
@@ -13,7 +12,7 @@ public class Documento {
 	private Collection<Parrafo> parrafos = new LinkedList<Parrafo>();
 	
 	
-	/** Constructor de la clase que recibe por par�metro un nombre, una complejidad y el idioma en que el Documento est� escrito.*/
+	/** Constructor de la clase que recibe por par�metro un nombre, una complejidad y el idioma en que el Documento est� escrito. */
 	public Documento(String nombre, Integer complejidad, Idioma idioma){
 		this.nombre=nombre;
 		this.complejidad=complejidad;
@@ -26,14 +25,20 @@ public class Documento {
 		this.idioma=idioma;
 	}
 	
+	public Documento(){
+		
+	}
+	
 	/** M�todo de la clase que recibe por par�metro una complejidad, si el par�metro es mayor o igual a 0 o menor o igual a 10, se setea la complejidad. Caso contrario, 
 	 * se lanza una excepci�n.*/
 	public void setComplejidad(Integer complejidad) throws Exception{
-		if (complejidad<0) {
-			throw new Exception ("No se puede usar valores negativos como complejidad de un documento.");
-		}
-		if (complejidad>10){
-			throw new Exception ("No se puede usar valores mayores a 10 como complejidad de un documento.");
+		if (complejidad!=null){
+			if (complejidad<0) {
+				throw new Exception ("No se puede usar valores negativos como complejidad de un documento.");
+			}
+			if (complejidad>10){
+				throw new Exception ("No se puede usar valores mayores a 10 como complejidad de un documento.");
+			}
 		}
 		this.complejidad=complejidad;
 	}
@@ -65,16 +70,20 @@ public class Documento {
 		return this.nombre;
 	}
 	
-	public long getId(){
-		return this.id;
-	}
-	
-	public void setId(long id){
-		this.id=id;
-	}
-	
 	public void setNombre(String nombre){
 		this.nombre=nombre;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public void setParrafos(Collection<Parrafo> parrafos){
+		this.parrafos=parrafos;
 	}
 	
 }

@@ -2,27 +2,30 @@ package bd2.model;
 
 import java.util.*;
 
-/** Esta es la clase Evaluación, la cuál contiene un puntaje numérico y la traducción que es evaluada*/
+/** Esta es la clase Evaluaciï¿½n, la cuï¿½l contiene un puntaje numï¿½rico y la traducciï¿½n que es evaluada*/
 
 public class Evaluacion extends Tarea {
 	
-	private long id = 1L;
 	private Integer puntaje;
 	private Traduccion traduccion;
 	
-	/** Método constructor de la clase "Evaluación" que recibe por parámetro una fecha, una descripción, 
-	 * un booleano que indica completitud de la evaluación y el puntaje de la Evaluación*/
+	/** Mï¿½todo constructor de la clase "Evaluaciï¿½n" que recibe por parï¿½metro una fecha, una descripciï¿½n, 
+	 * un booleano que indica completitud de la evaluaciï¿½n y el puntaje de la Evaluaciï¿½n*/
 	public Evaluacion(Date fecha, String descripcion, Boolean completa, Integer puntaje){
 		super(fecha, descripcion, completa);
 		this.puntaje=puntaje;
 	}
 	
-	/** Método constructor de la clase "Evaluación" que recibe por parámetro una fecha, una descripción, 
-	 * un booleano que indica completitud de la evaluación, la traducción evaluada y el puntaje de la Evaluación*/
+	/** Mï¿½todo constructor de la clase "Evaluaciï¿½n" que recibe por parï¿½metro una fecha, una descripciï¿½n, 
+	 * un booleano que indica completitud de la evaluaciï¿½n, la traducciï¿½n evaluada y el puntaje de la Evaluaciï¿½n*/
 	public Evaluacion(Date fecha, String descripcion, Boolean completa, Traduccion traduccion, int puntaje) {
 		super(fecha, descripcion, completa);
 		this.traduccion = traduccion;
 		this.puntaje=puntaje;
+	}
+	
+	public Evaluacion(){
+		super();
 	}
 	
 	public int getPuntaje(){
@@ -41,12 +44,5 @@ public class Evaluacion extends Tarea {
 		this.traduccion=traduccion;
 	}
 	
-	public long getId(){
-		return this.id;
-	}
-	
-	public void setId(long id){
-		this.id=id;
-	}
 
 }

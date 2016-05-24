@@ -6,7 +6,7 @@ import java.util.Date;
 public class Traduccion extends Tarea {
 	
 	
-	private long id = 1L;
+	
 	private String texto;
 	private Idioma idioma;
 	private Parrafo parrafo;
@@ -18,6 +18,10 @@ public class Traduccion extends Tarea {
 		this.texto=texto;
 		this.idioma=idioma;
 		this.parrafo=parrafo;
+	}
+
+	public Traduccion(){
+		super();
 	}
 	
 	/** M�todo que retorna el idioma original en que estaba escrito el p�rrafo traducido.*/
@@ -49,12 +53,6 @@ public class Traduccion extends Tarea {
 		this.parrafo=parrafo;
 	}
 	
-	public long getId(){
-		return this.id;
-	}
 	
-	public void setId(long id){
-		this.id=id;
-	}
 	
 }

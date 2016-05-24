@@ -4,14 +4,14 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-	<class name="Prueba" table="prueba">
+	<class name="bd2.model.Prueba" table="prueba">
 		<meta attribute="class-description">
 			Esta es la tabla de la clase prueba
 		</meta>
 		<id name="id" type="long" column="id_prueba">
-			<generator class="increment"/>
+			<generator class="native"/>
 		</id>
 		<property name="puntaje" column="puntaje" type="integer"/>
-		<many-to-one name="leccion" class="bd2.model.Leccion" not-null="true" unique="true"></many-to-one>
+		<many-to-one name="leccion" class="bd2.model.Leccion" not-null="true" cascade="all"></many-to-one>
 	</class>
 </hibernate-mapping>

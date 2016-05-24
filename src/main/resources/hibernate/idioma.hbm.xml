@@ -4,14 +4,14 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-	<class name="Idioma" table="idioma">
+	<class name="bd2.model.Idioma" table="idioma">
 		<meta attribute="class-description">
 			Tabla de la clase idioma
 		</meta>
 		<id name="id" type="long" column="id_idioma">
-			<generator class="increment"/>
+			<generator class="native"/>
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
-		<many-to-one name="diccionario" class="bd2.model.Diccionario" not-null="true" unique="true"></many-to-one>
+		<many-to-one name="diccionario" class="bd2.model.Diccionario" not-null="true" cascade="all"></many-to-one>
 	</class>
 </hibernate-mapping>

@@ -16,6 +16,10 @@ public class Parrafo {
 		this.documento=documento;
 	}
 	
+	public Parrafo(){
+		
+	}
+	
 	public String getTexto(){
 		return this.texto;
 	}
@@ -31,12 +35,12 @@ public class Parrafo {
 	public void setDocumento(Documento documento){
 		this.documento=documento;
 	}
-	
-	public long getId(){
-		return this.id;
+
+	public long getId() {
+		return id;
 	}
-	
-	public void setId(long id){
-		this.id=id;
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

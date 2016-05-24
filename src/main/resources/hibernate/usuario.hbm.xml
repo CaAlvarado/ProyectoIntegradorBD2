@@ -4,28 +4,34 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-	<class name="Usuario" table="usuario" discriminator-value="U">
+	<class name="bd2.model.Usuario" table="usuario" discriminator-value="U">
             <meta attribute="class-description">
-			Tabla de la clase usuario
+				Tabla de la clase usuario
             </meta>
-            <id name="id" column="id_usuario"> <generator class="native"></id>
-            <discriminator column="tipo_usuario" type="string">
-            <property name="email">
-            <proterty name="nombre">
-            <property name="fechaDeCreacion">
+            <id name="id" type="long" column="id_usuario"> 
+            	<generator class="native"/>
+            </id>
+            <discriminator column="tipo_usuario" type="string"/>
+            <property name="email" type="text"/>
+            <property name="nombre" type="text"/>
+            <property name="fechaDeCreacion" type="date"/>
             <list name="cursadasRealizadas" cascade="all">
-                <key column="id_usuario">
-                <one-to-many class="Cursada">
+                <key column="id_usuario"/>
+                <list-index column="indice_cursadarealizada"/>
+                <one-to-many class="bd2.model.Cursada"/>
             </list>
             <list name="traducciones" cascade="all">
-                <key column="id_usuario">
-                <one-to-many class="Traduccion">
+                <key column="id_usuario"/>
+                <list-index column="indice_traduccion"/>
+                <one-to-many class="bd2.model.Traduccion"/>
             </list>
-            <joined-subclass name="Moderador" table="moderador">
+            <joined-subclass name="bd2.model.Moderador" table="moderador">
+            	<key column="moderador_id"/>
                 <list name="idiomas" table="moderadorIdioma" cascade="all">
-                <key column="id_moderador">
-                <many-to-many class="Idioma" column="id_idioma">
+                	<key column="id_moderador"/>
+                	<list-index column="indice_moderador"/>
+                	<many-to-many class="bd2.model.Idioma" column="id_idioma"/>
                 </list>
             </joined-subclass>
-        </class>
-</hibernate-mapping>">
+	</class>
+</hibernate-mapping>
