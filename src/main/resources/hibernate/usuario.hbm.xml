@@ -32,6 +32,11 @@
                 	<list-index column="indice_moderador"/>
                 	<many-to-many class="bd2.model.Idioma" column="id_idioma"/>
                 </list>
+                <list name="evaluaciones" table="moderadorEvaluacion" cascade="all">
+                	<key column="id_moderador"/>
+                	<list-index column="indice_moderador"/>
+                	<one-to-many class="bd2.model.Evaluacion"/>
+                </list>
             </joined-subclass>
 	</class>
 </hibernate-mapping>
