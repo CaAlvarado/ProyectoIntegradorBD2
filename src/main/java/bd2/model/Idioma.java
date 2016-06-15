@@ -1,13 +1,35 @@
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
+/** Esta es la clase idioma, que posee un nombre y un diccionario de palabras y definiciones */
 public class Idioma {
-	protected String nombre;
-	protected Diccionario diccionario;
-	private long id;
+	private long id = 1L;
+	private String nombre;
+	private Diccionario diccionario;
+	
+	/** Este constructor asigna un string que llega por parametro, que es el nombre del idioma, 
+	 * y tambien crea un diccionario nuevo vacio pasandose el idioma mismo como primer parametro para el constructor de diccionario
+	 */
+	public Idioma(String idioma){
+		this.nombre=idioma;
+		this.diccionario= new Diccionario(this, "");
+	}
+	
+	public Idioma(){
+		
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Diccionario getDiccionario() {
+		return diccionario;
+	}
+	public void setDiccionario(Diccionario diccionario) {
+		this.diccionario = diccionario;
+	}
 
 	public long getId() {
 		return id;
@@ -16,27 +38,6 @@ public class Idioma {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public Idioma(){}
 	
-	public Idioma(String nombre) {
-		this.nombre = nombre;
-		this.diccionario = new Diccionario(this, "");
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Diccionario getDiccionario() {
-		return this.diccionario;
-	}
-
-	public void setDiccionario(Diccionario diccionario) {
-		this.diccionario = diccionario;
-	}
+	
 }

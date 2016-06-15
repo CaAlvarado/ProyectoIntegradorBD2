@@ -1,20 +1,53 @@
-/**
- * 
- */
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
-import java.util.Date;
+import java.util.*;
 
-public abstract class Tarea {
-
+/** Esta es la clase Tarea, la cual conoce su fecham una descripci�n y un booleano que indica si est� completa o no.*/
+public class Tarea {
+	
+	protected long id = 1L;
 	protected Date fecha;
 	protected String descripcion;
-	protected Boolean completa = false;;
-	private long id;
+	protected Boolean completa;
+	
+	/** Constructor que recibe una fecha, una descripci�n y un booleano que indica si la tarea est� completa.*/
+	public Tarea (Date fecha, String descripcion, Boolean completa){
+		this.fecha=fecha;
+		this.descripcion=descripcion;
+		this.completa=completa;
+	}
+	
+	public Tarea(){
+		
+	}
+	
+	public void setCompleta(Boolean comp){
+		this.completar();
+	}
+	
+	public void completar(){
+		this.completa=true;
+	}
+	
+	public Date getFecha(){
+		return this.fecha;
+	}
+	
+	public void setFecha(Date fecha){
+		this.fecha=fecha;
+	}
+	
+	public String getDescripcion(){
+		return this.descripcion;
+	}
+	
+	public void setDescripcion(String descripcion){
+		this.descripcion=descripcion;
+	}
+	
+	public Boolean getCompleta(){
+		return this.completa;
+	}
 
 	public long getId() {
 		return id;
@@ -23,34 +56,4 @@ public abstract class Tarea {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	public Tarea(Date fecha, String descripcion, Boolean completa) {
-		super();
-		this.fecha = fecha;
-		this.descripcion = descripcion;
-		this.completa = completa;
-	}
-	
-	public Date getFecha() {
-		return fecha;
-	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	public Boolean getCompleta() {
-		return completa;
-	}
-	public void setCompleta(Boolean completa) {
-		this.completa = completa;
-	}
-	public void completar(){
-		this.setCompleta(false);
-	}
-	
 }

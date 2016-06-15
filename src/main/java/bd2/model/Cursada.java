@@ -1,34 +1,48 @@
 package bd2.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.LinkedList;
 
-/**
- * @author bd2
- *
+/** Esta es la clase cursada que conoce a sus alumnos, fecha de inicio, 
+ * a que curso pertenece, y que pruebas se realizaron en ella
  */
-public class Cursada {
-	protected Curso curso;
-	protected Date inicio;
-	protected Usuario usuario;
-	protected Collection<Prueba> pruebas = new HashSet<Prueba>();
-	private long id;
+public class Cursada {	
 	
-	public Cursada(Curso curso, Date inicio, Usuario usuario) {
-		this.curso = curso;
-		this.inicio = inicio;
+	private long id = 1L;
+	private Usuario usuario;											
+	private Date inicio;
+	private Curso curso;
+	private Collection<Prueba> pruebas= new LinkedList<Prueba>();
+	
+	/** Este constructor se encarga de asignar los parametros curso, inicio y usuario a las correspondientes variables de instancia al objeto que se crea, 
+	 * asi como tambien le asigna al objeto usuario que paso por parametro la cursada que se esta creando
+	 */
+	public Cursada(Curso curso, Date inicio, Usuario usuario){
+		this.inicio=inicio;
+		this.usuario=usuario;
+		usuario.agregarCursada(this);;
+		this.curso=curso;
+	}
+	
+	public Cursada(){
+		
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-		usuario.agregarCursada(this);
 	}
 
-	public long getId() {
-		return id;
+	public Date getInicio() {
+		return inicio;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
 	}
 
 	public Curso getCurso() {
@@ -39,53 +53,61 @@ public class Cursada {
 		this.curso = curso;
 	}
 
-	public Date getInicio() {
-		return inicio;
-	}
-
-	public Idioma getIdioma() {
-		return this.getCurso().getIdioma();
-	}
-
-	public int getNivel() {
-		return this.getCurso().getNivel();
-	}
-
-	public void setInicio(Date inicio) {
-		this.inicio = inicio;
-	}
-
-	public void agregarPrueba(Prueba prueba) {
-		this.pruebas.add(prueba);
-	}
-
 	public Collection<Prueba> getPruebas() {
 		return pruebas;
 	}
-
-	public void setPruebas(Collection<Prueba> pruebas) {
-		this.pruebas = pruebas;
+	
+	/** Este metodo recupera el idioma del curso al que pertenece esta cursada */
+	public Idioma getIdioma(){
+		return this.curso.getIdioma();
 	}
-
-	public Boolean finalizada() {
-		Collection<Leccion> leccionesAprobadas = this.leccionesAprobadas();
-		Collection<Leccion> leccionesEsperadas = this.getCurso().getLecciones();
-		for (Leccion esperada : leccionesEsperadas)
-			if (!leccionesAprobadas.contains(esperada))
-				return false;
-		return true;
+	
+	/** Este metodo recupera el nivel del curso al que pertenece esta cursada */
+	public int getNivel(){
+		return this.curso.getNivel();
 	}
-
-	public Collection<Leccion> leccionesAprobadas() {
-		Collection<Leccion> aprobadas = new ArrayList<Leccion>();
-		for (Prueba prueba : this.getPruebas())
-			if (prueba.aprobada())
+	
+	public void agregarPrueba(Prueba prueba){
+		this.pruebas.add(prueba);
+	}
+	
+	/** Este metodo (que retorna una coleccion de lecciones) se encarga de buscar en la coleccion de pruebas de esta cursada las que fueron aprobadas, 
+	 * y guarda la leccion de cada prueba aprobada en la coleccion a retornar
+	 */
+	public Collection<Leccion> leccionesAprobadas(){
+		Collection<Leccion> aprobadas= new LinkedList<Leccion>();
+		for (Prueba prueba: this.getPruebas()){
+			if (prueba.aprobada()){
 				aprobadas.add(prueba.getLeccion());
+			}
+		}
 		return aprobadas;
 	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
+	
+	/** Este metodo toma las lecciones aprobadas en la cursada, y las lecciones totales del curso de la cursada, recorriendo dicha coleccion de lecciones 
+	 * y preguntando si estan incluidas en la coleccion de lecciones aprobadas
+	 * Si todas las lecciones del curso correspondiente estan en la coleccion de aprobadas retorna true, caso contrario retorna false
+	 */
+	public Boolean finalizada(){
+		Collection<Leccion> aprobadas= this.leccionesAprobadas();
+		Collection<Leccion> leccionesCurso= this.getCurso().getLecciones();
+		for (Leccion leccion: leccionesCurso){
+			if (!aprobadas.contains(leccion)){
+				return false;
+			}
+		}
+		return true;
+	}
+	public long getId() {
+		return id;
 	}
 
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setPruebas(Collection<Prueba> pruebas){
+		this.pruebas=pruebas;
+	}
+	
 }

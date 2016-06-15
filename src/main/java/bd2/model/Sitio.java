@@ -1,64 +1,55 @@
 package bd2.model;
-
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedList;
 
-/**
- * @author bd2
- *
- */
+/** Esta es la clase sitio, que posee tres colecciones: usuarios, cursos y documentos */
 public class Sitio {
-
-	private Collection<Usuario> usuarios = new HashSet<Usuario>();
-	private Collection<Curso> cursos = new HashSet<Curso>();
-	private Collection<Documento> documentos = new HashSet<Documento>();
-	private long id;
-
+	private long id = 1L;
+	private Collection<Usuario> usuarios= new LinkedList<Usuario>();
+	private Collection<Curso> cursos= new LinkedList<Curso>();
+	private Collection<Documento> documentos= new LinkedList<Documento>();
+	
+	public Sitio(){
+		
+	}
+	
+	public Collection<Usuario> getUsuarios() {
+		return this.usuarios;
+	}
+	public Collection<Curso> getCursos() {
+		return this.cursos;
+	}
+	public Collection<Documento> getDocumentos() {
+		return this.documentos;
+	}
+	
+	public void registrarUsuario(Usuario usuario){
+		this.usuarios.add(usuario);
+	}
+	
+	public void agregarCurso(Curso curso){
+		this.cursos.add(curso);
+	}
+	
+	public void agregarDocumento(Documento documento){
+		this.documentos.add(documento);
+	}
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public Sitio() {
+	
+	public void setCursos(Collection<Curso> cursos){
+		this.cursos=cursos;
 	}
-
-	public Collection<Usuario> getUsuarios() {
-		return usuarios;
+	
+	public void setUsuarios(Collection<Usuario> usuarios){
+		this.usuarios=usuarios;
 	}
-
-	public void registrarUsuario(Usuario usuario) {
-		this.getUsuarios().add(usuario);
+	
+	public void setDocumentos(Collection<Documento> documentos){
+		this.documentos=documentos;
 	}
-
-	public Collection<Curso> getCursos() {
-		return cursos;
-	}
-
-	public void agregarCurso(Curso curso) {
-		this.getCursos().add(curso);
-	}
-
-	public void agregarDocumento(Documento documento) {
-		this.getDocumentos().add(documento);
-	}
-
-	public void setUsuarios(Collection<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public void setCursos(Collection<Curso> cursos) {
-		this.cursos = cursos;
-	}
-
-	public Collection<Documento> getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(Collection<Documento> documentos) {
-		this.documentos = documentos;
-	}
-
 }

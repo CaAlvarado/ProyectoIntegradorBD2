@@ -1,106 +1,111 @@
 package bd2.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-/**
- * @author bd2
- *
- */
+import java.util.*;
 
-import java.util.Date;
-
-/**
- * @author bd2
- *
- */
+/** Esta es la clase Usuario, la cual conoce su email, su nombre, la fecha de creaci�n,
+ * las cursadas que realiz� y las traducciones que realiz�.*/
 public class Usuario {
-	protected String email;
-	protected String nombre;
-	protected Date fechaDeCreacion;
-	protected Collection<Traduccion> traducciones = new HashSet<Traduccion>();
-	protected Collection<Cursada> cursadasRealizadas = new HashSet<Cursada>();
-	private long id;
-
-	public Usuario(String email, String nombre, Date fechaDeCreacion) {
-		super();
+	
+	private long id = 1L;
+	private String email;
+	private String nombre;
+	private Date fechaDeCreacion;
+	private Collection<Cursada> cursadasRealizadas = new LinkedList<Cursada>();
+	private Collection<Traduccion> traducciones = new LinkedList<Traduccion>();
+	
+	public Usuario(){
+		
+	}
+	
+	/** Constructor de la clase que recibe por par�metro un email, un nombre y una fecha de creaci�n.*/
+	public Usuario(String email, String nombre, Date fechaDeCreacion){
 		this.email = email;
 		this.nombre = nombre;
 		this.fechaDeCreacion = fechaDeCreacion;
 	}
 	
+	/** M�todo que retorna el nivel m�ximo entre las cursadas aprobadas por el usuario del idioma recibido por par�metro.*/	
+	public int nivel(Idioma idioma){
+		int nivMax=-1;
+		for (Cursada cursadaAct : this.cursadasAprobadas(idioma)){
+			if (cursadaAct.getNivel()>nivMax){
+				nivMax=cursadaAct.getNivel();
+			}
+		}
+		if (nivMax==-1){
+			return 0;
+		} else {
+			return nivMax;
+		}
+	}
+	
+	/** M�todo que retorna todas las cursadas aprobadas por el usuario del idioma recibido por par�metro. Para esto,
+	 * se selecciona de la colecci�n de cursadas realizadas las cursadas del idioma que es recibido por par�metro que fueron 
+	 * finalizadas */	
+	public Collection<Cursada> cursadasAprobadas(Idioma idioma){
+		Collection<Cursada> CAprobadas = new LinkedList<Cursada>();
+		for (Cursada cursadaAct : this.cursadasRealizadas){
+			if(cursadaAct.finalizada() && cursadaAct.getIdioma().equals(idioma)){
+				CAprobadas.add(cursadaAct);
+			}
+		}
+		return CAprobadas;
+	}
+	
+	public void agregarCursada(Cursada cursada){
+		this.cursadasRealizadas.add(cursada);
+	}
+	
+	public void agregarTraduccion(Traduccion traduccion){
+		this.traducciones.add(traduccion);
+	}
+	
+	public Collection<Cursada> getCursadasRealizadas(){
+		return this.cursadasRealizadas;
+	}
+	
+	public Collection<Traduccion> getTraducciones(){
+		return this.traducciones;
+	}
+	
+	public void setEmail(String email){
+		this.email=email;
+	}
+	
+	public void setNombre(String nombre){
+		this.nombre=nombre;
+	}
+	
+	public String getEmail(){
+		return this.email;
+	}
+	
+	public void setFechaDeCreacion(Date fechaDeCreacion){
+		this.fechaDeCreacion=fechaDeCreacion;
+	}
+	
+	public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas){
+		this.cursadasRealizadas=cursadasRealizadas;
+	}
+	
+	public void setTraducciones(Collection<Traduccion> traducciones){
+		this.traducciones=traducciones;
+	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
+	
+	
+	public Date getFechaDeCreacion(){
+		return this.fechaDeCreacion;
+	}
+
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Date getFechaDeCreacion() {
-		return fechaDeCreacion;
-	}
-
-	public void setFechaDeCreacion(Date fechaDeCreacion) {
-		this.fechaDeCreacion = fechaDeCreacion;
-	}
-
-	public void agregarCursada(Cursada cursada) {
-		this.cursadasRealizadas.add(cursada);
-	}
-
-	public void agregarTraduccion(Traduccion traduccion) {
-		this.traducciones.add(traduccion);
-	}
-
-	public int nivel(Idioma idioma) {
-		ArrayList<Integer> niveles = new ArrayList<Integer>();
-		for (Cursada cursada : this.cursadasAprobadas(idioma))
-			niveles.add(cursada.getNivel());
-		if(niveles.isEmpty())
-			return 0;
-		else
-			return Collections.max(niveles);
-	}
-
-	public Collection<Cursada> cursadasAprobadas(Idioma idioma) {
-		Collection<Cursada> aprobadas = new ArrayList<Cursada>();
-		for (Cursada cursada : this.getCursadasRealizadas())
-			if (cursada.finalizada() & cursada.getIdioma().equals(idioma))
-				aprobadas.add(cursada);
-		return aprobadas;
-	}
-
-	public Collection<Cursada> getCursadasRealizadas() {
-		return cursadasRealizadas;
-	}
-
-	public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas) {
-		this.cursadasRealizadas = cursadasRealizadas;
-	}
-
-	public Collection<Traduccion> getTraducciones() {
-		return traducciones;
-	}
-
-	public void setTraducciones(Collection<Traduccion> traducciones) {
-		this.traducciones = traducciones;
 	}
 }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
-<hibernate-mapping package="bd2.model">
-
-	<class name="Leccion" table="leccion">
-		<id name="id" column="leccion_id">
-			<generator class="native" />
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+<hibernate-mapping>
+	<class name="bd2.model.Leccion" table="leccion">
+		<meta attribute="class-description">
+			Tabla de la clase leccion 
+		</meta>
+		<id name="id" type="long" column="id_leccion">
+			<generator class="increment"/>
 		</id>
-		<property name="nombre" />
+		<property name="nombre" column="nombre" type="string"/>
 	</class>
-
 </hibernate-mapping>

@@ -1,27 +1,53 @@
 package bd2.model;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedList;
 
-/**
- * @author bd2
- *
- */
-public class Curso {
-	protected String nombre;
-	protected Idioma idioma;
-	protected int nivel;
-	protected Collection<Leccion> lecciones = new HashSet<Leccion>();
-	private long id;
-
-
-
-	public Curso(String nombre, Idioma idioma, int nivel) {
-		this.nombre = nombre;
-		this.nivel = nivel;
-		this.idioma = idioma;
+/** Esta es la clase curso, que conoce su nombre, nivel, el idioma que se ense�a y las lecciones que le corresponden */	
+public class Curso {	
+	private long id = 1L;
+	private String nombre;
+	private int nivel;
+	private Collection<Leccion> lecciones= new LinkedList<Leccion>();
+	private Idioma idioma;
+	
+	/** Este constructor se encarga de asignar los parametros nombre, idioma y nivel a las variables de instancia del objeto que se crea */
+	public Curso(String nombre, Idioma idioma, int nivel){
+		this.nombre=nombre;
+		this.idioma=idioma;
+		this.nivel=nivel;
 	}
 	
+	public Curso(){
+		
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public int getNivel() {
+		return nivel;
+	}
+	public Collection<Leccion> getLecciones() {
+		return lecciones;
+	}
+	public Idioma getIdioma() {
+		return idioma;
+	}
+	
+	public void agregarLeccion(Leccion leccion){
+		this.lecciones.add(leccion);
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setNivel(Integer nivel) {
+		this.nivel = nivel;
+	}
+	public void setIdioma(Idioma idioma) {
+		this.idioma = idioma;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -29,41 +55,9 @@ public class Curso {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public String getNombre() {
-		return nombre;
+	
+	public void setLecciones(Collection<Leccion> lecciones){
+		this.lecciones=lecciones;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-
-	public Collection<Leccion> getLecciones() {
-		return lecciones;
-	}
-
-	public void setLecciones(Collection<Leccion> lecciones) {
-		this.lecciones = lecciones;
-	}
-
-	public void agregarLeccion(Leccion leccion) {
-		this.lecciones.add(leccion);
-	}
-
-	public Idioma getIdioma() {
-		return idioma;
-	}
-
-	public void setIdioma(Idioma idioma) {
-		this.idioma = idioma;
-	}
-
+	
 }

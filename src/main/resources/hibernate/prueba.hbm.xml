@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
-<hibernate-mapping package="bd2.model">
-
-	<class name="Prueba" table="prueba">
-		<id name="id" column="prueba_id">
-			<generator class="native" />
+<hibernate-mapping>
+	<class name="bd2.model.Prueba" table="prueba">
+		<meta attribute="class-description">
+			Esta es la tabla de la clase prueba
+		</meta>
+		<id name="id" type="long" column="id_prueba">
+			<generator class="native"/>
 		</id>
-
-		<property name="puntaje"/>
-		<many-to-one name="leccion" 
-		    column="leccion_id" 
-        	cascade="all"
-        	not-null="true"/>
+		<property name="puntaje" column="puntaje" type="integer"/>
+		<many-to-one name="leccion" class="bd2.model.Leccion" not-null="true" cascade="all"></many-to-one>
 	</class>
-
 </hibernate-mapping>

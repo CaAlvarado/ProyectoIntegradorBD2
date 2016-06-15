@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
-<hibernate-mapping package="bd2.model">
-
-	<class name="Curso" table="curso">
-		<id name="id" column="curso_id">
-			<generator class="native" />
+<hibernate-mapping>
+	<class name="bd2.model.Curso" table="curso">
+		<meta attribute="class-description">
+			Esta es la tabla de la clase curso
+		</meta>
+		<id name="id" type="long" column="id_curso">
+			<generator class="increment"/>
 		</id>
-		<property name="nombre" />
-		<property name="nivel" type="int"/>
-		<set name="lecciones" cascade="all">
+		<property name="nombre" column="nombre" type="string"/>
+		<property name="nivel" column="nivel" type="integer"/>
+		<many-to-one name="idioma" class="bd2.model.Idioma" not-null="true"/>
+		<list name="lecciones" cascade="all">
 			<key column="curso_id"/>
-			<one-to-many class="Leccion"/>
-		</set>	
-		<many-to-one name="idioma" 
-        	column="idioma_id" 
-        	not-null="true"/>
+			<list-index column="indice_leccion"/>
+			<one-to-many class="bd2.model.Leccion"/>
+		</list>
 	</class>
-	
 </hibernate-mapping>

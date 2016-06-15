@@ -1,26 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
-<hibernate-mapping package="bd2.model">
-
-	<class name="Documento" table="documento">
-		<id name="id" column="documento_id">
-			<generator class="native" />
+<hibernate-mapping>
+    <class name="bd2.model.Documento" table="documento">
+        <meta attribute="class-description">
+            Esta es la tabla de la clase documento
+		</meta>
+		<id name="id" type="long" column="id_documento">
+            <generator class="increment"/>
 		</id>
-
-		<property name="nombre"/>
-		
-		<many-to-one name="idioma" 
-        	column="idioma_id" 
-        	cascade="all"
-        	not-null="true"/>
-		
-		<set name="parrafos" cascade="all">
-			<key column="documento_id"/>
-			<one-to-many class="Parrafo"/>
-		</set>
-	</class>
-	
+        <property name="nombre" type="text"/>
+        <property name="complejidad" type="integer"/>
+        <list name="parrafos" cascade="all">
+            <key column="id_documento"/>
+            <list-index column="indice_parrafo"/>
+            <one-to-many class="bd2.model.Parrafo"/>
+        </list>
+        <many-to-one name="idioma" class="bd2.model.Idioma" column="idioma_id" cascade="all" not-null="false"/>
+    </class>
 </hibernate-mapping>

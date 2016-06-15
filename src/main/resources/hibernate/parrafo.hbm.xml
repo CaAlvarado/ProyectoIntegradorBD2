@@ -3,13 +3,14 @@
  "-//Hibernate/Hibernate Mapping DTD//EN"
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="bd2.model">
+<hibernate-mapping>
 
-	<class name="Parrafo" table="parrafo">
-		<id name="id" column="parrafo_id">
-			<generator class="native" />
+	<class name="bd2.model.Parrafo" table="parrafo">
+		<id name="id" type="long" column="parrafo_id">
+			<generator class="increment" />
 		</id>
-		<property name="texto" type="text" />
+		<property name="texto" type="text"/>
+		<many-to-one name="documento" column="documento_id" not-null="true" cascade="all"/>
 	</class>
 
 </hibernate-mapping>

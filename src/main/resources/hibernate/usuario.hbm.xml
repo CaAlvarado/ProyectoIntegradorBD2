@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
-<hibernate-mapping package="bd2.model">
-
-	<class name="Usuario" table="usuario" discriminator-value="U">
-		<id name="id" column="usuario_id">
-			<generator class="native" />
-		</id>
-		<discriminator column="subclase_usuario" type="string" />
-				
-		<property name="nombre"/>
-		<property name="fechaDeCreacion"/>
-		<property name="email"/>
-		
-		
-		<set name="cursadasRealizadas" cascade="all">
-			<key column="usuario_id"/>
-			<one-to-many class="Cursada"/>
-		</set>	
-		 
-		<set name="traducciones" cascade="all">
-			<key column="usuario_id"/>
-			<one-to-many class="Traduccion"/>
-		</set>		
+<hibernate-mapping>
+	<class name="bd2.model.Usuario" table="usuario" discriminator-value="U">
+            <meta attribute="class-description">
+				Tabla de la clase usuario
+            </meta>
+            <id name="id" type="long" column="id_usuario"> 
+            	<generator class="native"/>
+            </id>
+            <discriminator column="tipo_usuario" type="string"/>
+            <property name="email" type="text"/>
+            <property name="nombre" type="text"/>
+            <property name="fechaDeCreacion" type="date"/>
+            <list name="cursadasRealizadas" cascade="all">
+                <key column="id_usuario"/>
+                <list-index column="indice_cursadarealizada"/>
+                <one-to-many class="bd2.model.Cursada"/>
+            </list>
+            <list name="traducciones" cascade="all">
+                <key column="id_usuario"/>
+                <list-index column="indice_traduccion"/>
+                <one-to-many class="bd2.model.Traduccion"/>
+            </list>
+            <joined-subclass name="bd2.model.Moderador" table="moderador">
+            	<key column="moderador_id"/>
+                <list name="idiomas" table="moderadorIdioma" cascade="all">
+                	<key column="id_moderador"/>
+                	<list-index column="indice_moderador"/>
+                	<many-to-many class="bd2.model.Idioma" column="id_idioma"/>
+                </list>
+                <list name="evaluaciones" table="moderadorEvaluacion" cascade="all">
+                	<key column="id_moderador"/>
+                	<list-index column="indice_moderador"/>
+                	<one-to-many class="bd2.model.Evaluacion"/>
+                </list>
+            </joined-subclass>
 	</class>
-	
-	<subclass name="Moderador" extends="Usuario" discriminator-value="M">	 
-		<set name="idiomas" table="idioma_moderador" cascade="all">
-     		<key column="moderador_id"/>
-     		<many-to-many column="idioma_id" class="Idioma"/>
-		</set>
-		
-		<set name="evaluaciones" lazy="true" cascade="all">
-			<key column="moderador_id" />
-			<one-to-many class="Evaluacion" />
-		</set>		
-	</subclass>
-	
-
 </hibernate-mapping>
