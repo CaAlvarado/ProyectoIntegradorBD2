@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
 
 <hibernate-mapping>
 	<class name="bd2.model.Tarea" table="tarea">
@@ -9,7 +10,7 @@
 			Tabla de la clase tarea
 		</meta>
 		<id name="id" type="long" column="id_tarea">
-			<generator class="increment" />
+		<generator class="increment" />
 		</id>
 		<discriminator column="tipo_tarea" type="string" />
 		<property name="fecha" type="date" />

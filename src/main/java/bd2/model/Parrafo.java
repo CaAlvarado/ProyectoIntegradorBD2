@@ -1,4 +1,4 @@
-package bd2.model;
+﻿package bd2.model;
 
 import java.util.*;
 
@@ -29,7 +29,10 @@ public class Parrafo {
 	}
 	
 	public Documento getDocumento(){
-		return documento;
+
+
+		return this.documento;
+
 	}
 	
 	public void setDocumento(Documento documento){

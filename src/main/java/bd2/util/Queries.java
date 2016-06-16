@@ -1,4 +1,5 @@
-package bd2.util;
+﻿package bd2.util;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,6 +27,7 @@ public class Queries {
 			consultaA(session);
 			consultaB(session);
 			consultaC(session);
+
 			Date inicio = new Date(2014,1,1);
 			Date fin = new Date(2016,1,1);
 			consultaD(session, inicio, fin);
@@ -186,6 +188,7 @@ public class Queries {
 		}
 	}
 	
+
 	private static void consultaF(Session session){
 		Transaction tx = null;
 		System.out.println("f. Obtener los emails de los usuarios con alguna cursada aprobada");
@@ -226,6 +229,7 @@ public class Queries {
 		}
 	}
 	
+
 	private static void consultaG(Session session, String palabra){
 		Transaction tx = null;
 		System.out.println("g. Obtener el nombre del idioma que define la palabra enviada como parámetro en su diccionario");
